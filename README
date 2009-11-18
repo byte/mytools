@@ -1,0 +1,6 @@
+Scripts to tune your MySQL database instance.
+
+Modifications made to the tree are always sent upstream. Scripts will be re-based accordingly.
+
+= Upstream Sources =
+tuning-primer.sh: https://launchpad.net/mysql-tuning-primer
