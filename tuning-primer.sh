@@ -68,15 +68,13 @@ local default_msg="No message passed."
 message=${1:-$default_msg}	# Defaults to default message.
 color=${2:-$black}		# Defaults to black, if not specified.
 
-OSE=$(uname -s)
-
-if [ "$OSE" = 'Linux' ] || [ "$OSE" = 'FreeBSD' ]; then
+if [ "$OS" = 'Linux' ] || [ "$OS" = 'FreeBSD' ]; then
   echo -e "$color"
   echo -e "$message"
   tput sgr0			# Reset to normal.
   echo -e "$black"
   return
-elif [ "$OSE" = 'Darwin' ]; then
+elif [ "$OS" = 'Darwin' ]; then
   echo "$color"
   echo "$message"
   tput sgr0                     # Reset to normal.
