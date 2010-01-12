@@ -1,0 +1,28 @@
+In cron, install mysql-backup.sh
+
+As root, do:
+crontab -e
+
+Then, enter:
+10 * * * * /usr/bin/mysql-backup.sh
+
+Make sure its the full path to mysql-backup.sh
+
+Don't forget to make it executable. Do that by doing:
+chmod +x mysql-backup.sh
+
+The above crontab runs the script every night, at 10 minutes past midnight.
+
+In the script, just make sure we add something to the --password= field. A password should be such that it looks like
+    --password=mypassword
+    
+Remember there are to be no spaces
+
+Replace the "databasename" with the name of the database to ensure that it will run.
+
+Test it by running /usr/bin/mysql-backup.sh
+
+To access the data, which is stored by date, go to /opt/backup and do:
+    gunzip 2010-01-12.sql.gz
+
+Now the 2010-01-12.sql file is available for use, to import back into the database in case of loss.
