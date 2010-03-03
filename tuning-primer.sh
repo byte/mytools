@@ -658,9 +658,9 @@ check_used_connections () {
 	connections_ratio=$(($max_used_connections*100/$max_connections))
 
 	cecho "MAX CONNECTIONS" boldblue
-	cecho "Current max_connections = max_connections"
-	cecho "Current threads_connected = threads_connected"
-	cecho "Historic max_used_connections = max_used_connections"
+	cecho "Current max_connections = $max_connections"
+	cecho "Current threads_connected = $threads_connected"
+	cecho "Historic max_used_connections = $max_used_connections"
 	cechon "The number of used connections is "
 	if [ $connections_ratio -ge 85 ] ; then
 		txt_color=red
