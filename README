@@ -1,4 +1,4 @@
-Scripts to tune your MySQL database instance.
+Misc scripts to tune/improve/etc/ your MySQL/MariaDB database instance.
 
 Modifications made to the tree are always sent upstream. Scripts will be re-based accordingly.
 
