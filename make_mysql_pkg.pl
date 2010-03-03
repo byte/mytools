@@ -13,6 +13,7 @@
 # 
 #
 # Written by Marc Liyanage (http://www.entropy.ch)
+# Updated by Colin Charles (http://bytebot.net/)
 #
 # History:
 #
@@ -20,7 +21,7 @@
 # ------------------------------------------------------------------
 # 2001-09-16   Marc Liyanage    First version
 # 2001-11-18   Marc Liyanage    Improved configure directory options
-#
+# 2010-03-04	Colin Charles	Make it ready for MariaDB
 
 use strict;
 use DirHandle;
@@ -35,8 +36,8 @@ $data->{CONFIG}         = join(" ",
 	"--includedir=$data->{PREFIX_DIR}/include",
 	"--with-named-z-libs=/usr/local/libz.a",
 	"--with-innodb",
-	"--with-server-suffix='-entropy.ch'",
-	"--with-comment='http://www.entropy.ch/software/macosx/mysql/'",
+	"--with-server-suffix='-mariadb'",
+	"--with-comment='http://www.mariadb.com/download'",
 	"--with-mysqld-user=mysql",
 	"--enable-assembler",
 	"CFLAGS=\"-DHAVE_BROKEN_REALPATH -lncurses\"",
@@ -295,37 +296,6 @@ sub create_pax_root {
 		chdir("..");
 		
 	}
-
-
-
-	# Fix up the library and lib directories. They are packed up wrong in the
-	# binary distribution tarball.
-	#
-	# (no longer needed as of 3.23.47)
-	# (oops, still needed because 3.23.47 is broken...)
-	#
-#	if (-d "$data->{PAXROOT_DIR}/mysql/lib/mysql") {
-#		abort($data, "$data->{PAXROOT_DIR}/mysql/lib/mysql exists, layout has changed!");
-#	}
-#	chdir("$data->{PAXROOT_DIR}/mysql/lib/");
-#	system("mkdir -p mysql");
-#	system("mv * mysql");
-
-#	if (-d "$data->{PAXROOT_DIR}/mysql/include/mysql") {
-#		abort($data, "$data->{PAXROOT_DIR}/mysql/include/mysql exists, layout has changed!");
-#	}
-#	chdir("$data->{PAXROOT_DIR}/mysql/include/");
-#	system("mkdir -p mysql");
-#	system("mv * mysql");
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -458,9 +428,9 @@ sub cleanup {
 
 
 __DATA__
-Title MySQL
+Title MariaDB
 Version <%VERSION%>
-Description The MySQL database server in a convenient Mac OS X package. Some additional configuration is necessary, please see http://www.entropy.ch/software/macosx/mysql/
+Description The MariaDB database is a new branch of the MySQL database which includes all major open source storage engines, myriad bug fixes, and many community patches. Find out more at http://www.mariadb.com/.
 DefaultLocation /usr/local
 Diskname (null)
 DeleteWarning
